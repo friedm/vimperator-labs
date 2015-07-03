@@ -211,6 +211,11 @@ const StatusLine = Module("statusline", {
                 }
 
                 node.value = url;
+
+                var sslStatus = document.getElementById("liberator-status-ssl").className;
+                if (sslStatus === "verifiedDomain" || sslStatus === "verifiedIdentity")
+                    node.style.color = "green";
+                else node.style.color = "";
             });
         statusline.addField("history", "The backward / forward history indicators", "liberator-status-history",
             function updateHistory (node) {
